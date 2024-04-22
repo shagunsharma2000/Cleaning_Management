@@ -1,21 +1,24 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
+import express from 'express'; 
+import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
+import Routes from './routes/adminRoutes';
+import helmet from "helmet";
 
-import express from 'express';
-import * as path from 'path';
+dotenv.config();
 
 const app = express();
+app.use(helmet());
 
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use(bodyParser.json());
 
-app.get('/api', (req, res) => {
+app.use('/admin', Routes);
+
+app.get('/', (req, res) => {
   res.send({ message: 'Welcome to management!' });
-});
+}); 
 
-const port = process.env.PORT || 3333;
-const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
-server.on('error', console.error);
