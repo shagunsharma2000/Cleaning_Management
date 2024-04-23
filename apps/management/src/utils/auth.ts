@@ -1,26 +1,34 @@
 import jwt from 'jsonwebtoken';
 
-const auth =  (req, res, next) => {
-    const bearerHeader =  req?.headers?.['authorization'];
-    if (typeof bearerHeader !== 'undefined') {
-        const bearer =  bearerHeader?.split(' ');
-        const token = bearer?.[1];
-        req.token = token; 
-        const Decoded = jwt.verify(token, process.env.TOKEN_KEY)
-        // if (verified) {
-            if (Decoded) {
-            req.user = Decoded;
-            next()
-        } else {
-            // Access Denied 
-             res.status(401).json({ message: 'invaild token' });
+const auth = (req, res, next) => {
+    const bearerHeader = req.headers.authorization;
 
+    if (bearerHeader) {
+        const bearer = bearerHeader.split(' ');
+        const token = bearer[1];
+
+        try {
+            // Verify token using the correct environment variable
+            const decoded = jwt.verify(token, process.env.TOKEN);
+
+            // If verification succeeds, attach user data to the request and proceed to the next middleware
+            if (decoded) {
+                req.user = decoded;
+                next();
+            } else {
+                return res.status(401).json({ message: 'Invalid token' });
+            }
+        } catch (error) {
+            // Log specific error message and return appropriate response
+            console.error('Error verifying token:', error.message);
+            return res.status(401).json({ message: 'Invalid token. ' + error.message });
         }
     } else {
-        //Access the Token
-        res.status(200).json({ message: 'Need Toekn After that Token verified successfully' });
-       
+        // Return a response indicating that a token is required
+        return res.status(401).json({ message: 'Token is required' });
     }
-}
+};
 
-export default auth ;
+export default auth;
+
+

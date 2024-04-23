@@ -1,14 +1,11 @@
 import Role from "./enums/indexEnums";
 
-
-export interface AdminAttributes {
+export interface AdminData {
     id?: number;
-    firstname: string;
-    lastname: string;
-    phonenumber: number;
-    username: string;
+    name?: string;
+    phonenumber: string;
     email: string;
     password: string;
-    Role: Role.Admin;
-}
-
+    Role?: Role.Admin;
+  }
+  

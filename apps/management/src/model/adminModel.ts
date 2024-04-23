@@ -6,10 +6,8 @@ import Role from "../utils/enums/indexEnums";
 interface AdminAttributes {
 
     id?: number;
-    firstname:string;
-    lastname:string;
+    name:string;
     phonenumber:number;
-    username: string;
     password: string;
     email: string;
     Role: Role; 
@@ -18,10 +16,8 @@ interface AdminAttributes {
 
 class Admin extends Model<AdminAttributes> implements AdminAttributes {
     public id!: number;
-    public firstname!:string;
-    public lastname!:string;
+    public name!:string;
     public phonenumber!:number;
-    public username!: string;
     public password!: string;
     public email!: string;
     public Role!: Role;
@@ -37,20 +33,12 @@ Admin.init({
         autoIncrement: true,
         primaryKey: true,
     },
-    firstname: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    lastname: {
+    name: {
         type: DataTypes.STRING,
         allowNull: false
     },
     phonenumber: {
         type: DataTypes.BIGINT,
-        allowNull: false
-    },
-    username: {
-        type: DataTypes.STRING,
         allowNull: false
     },
     password: {

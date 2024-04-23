@@ -24,12 +24,13 @@ export const message = {
     alreadyExist: (labal: string) => {
       return `${labal} already exist.`
     },
-    errorLog: (functionName: string, controllerName: string, err: any) => {
+    errorLog: (functionName: string, controllerName: string, err) => {
       return `${functionName} ${controllerName} Error @ ${err}`
     },
   }
   
   export const statusCode = {
+    invalidRequest:400,
     success: 200,
     badRequest: 400,
     internalServerError: 500,
