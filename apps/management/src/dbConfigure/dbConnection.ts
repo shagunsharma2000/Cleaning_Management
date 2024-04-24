@@ -6,9 +6,9 @@ dotenv.config();
  const sequelize = new Sequelize(
 
       
-  process.env.DB_NAME || 'cleaning management',
+  process.env.DB_NAME || 'cleaningmanagement',
   process.env.DB_USER || 'root',
-  process.env.DB_PASSWORD || '',
+  process.env.DB_PASSWORD || 'Dev@12345#',
   {
       host: process.env.DB_HOST || 'localhost',
       dialect: 'mysql',

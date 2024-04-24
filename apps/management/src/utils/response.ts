@@ -1,5 +1,5 @@
 
-export const successAction = (statusCode: number, data:any, message = 'Success') => {
+export const successAction = (statusCode: number, data, message = 'Success') => {
     return { statusCode, data, message };
 }
 

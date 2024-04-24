@@ -8,10 +8,11 @@ dotenv.config();
 
 const app = express();
 app.use(helmet());
+// app.use(express.json()); 
 
 app.use(bodyParser.json());
 
-app.use('/admin', Routes);
+app.use('/admin',Routes);
 
 app.get('/', (req, res) => {
   res.send({ message: 'Welcome to management!' });

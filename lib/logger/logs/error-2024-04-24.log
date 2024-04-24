@@ -1,0 +1,14 @@
+2024-04-24 11:52:58 - e2f938f3-9605-429a-8db1-7e0b560df0a2 - error: login adminController Error @ Error: Error during admin login: secretOrPrivateKey must have a value 
+2024-04-24 12:00:41 - ba14c5ae-32c5-4202-a06a-b0866b5ccd1d - error: login adminController Error @ Error: Error during admin login: secretOrPrivateKey must have a value 
+2024-04-24 12:03:36 - 8b3b666f-b142-486d-812c-be47ec3db786 - error: login adminController Error @ Error: Error during admin login: secretOrPrivateKey must have a value 
+2024-04-24 12:06:15 - 72185455-dc47-4654-a70d-e6fb2743ee54 - error: login adminController Error @ Error: Error during admin login: secretOrPrivateKey must have a value 
+2024-04-24 12:07:00 - 6cbc7e7a-311d-470e-95d6-b84ff87d6b56 - error: login adminController Error @ Error: Error during admin login: secretOrPrivateKey must have a value 
+2024-04-24 12:16:40 - f5e6fbe0-ee64-4da4-8ab6-7960d6318462 - error: login adminController Error @ Error: Error during admin login: secretOrPrivateKey must have a value 
+2024-04-24 12:26:27 - 93c1fac4-050a-4051-9209-ba48b66b1756 - error: login adminController Error @ Error: Error during admin login: secretOrPrivateKey must have a value 
+2024-04-24 12:28:03 - 991af774-1a66-4f5a-a33e-348bbde87264 - error: login adminController Error @ Error: Error during admin login: secretOrPrivateKey must have a value 
+2024-04-24 12:53:45 - d73eebf1-f4bf-48f8-9273-38d4883d64b2 - error: register adminController Error @ Error: Failed to register admin: Data truncated for column 'phonenumber' at row 1 
+2024-04-24 12:54:01 - 7ac77fbb-583b-4608-962b-1b14a322fd67 - error: register adminController Error @ Error: Failed to register admin: Data truncated for column 'phonenumber' at row 1 
+2024-04-24 12:54:41 - 7cfbae31-c937-43d0-9e81-dac6a97f08b7 - error: register adminController Error @ Error: Failed to register admin: Data truncated for column 'phonenumber' at row 1 
+2024-04-24 13:00:42 - 5c4151b3-374f-43ec-8deb-fb3b335aa8b1 - error: update adminController Error @ Error: Failed to update admin: Admin not found 
+2024-04-24 16:07:25 - 33a7333d-07c0-40e0-9eb9-20bcea563e34 - error: update adminController Error @ Error: Failed to update admin: Admin not found 
+2024-04-24 16:08:08 - 1ec62683-336f-44a9-8230-05f144470f81 - error: update adminController Error @ Error: Failed to update admin: Admin not found 
