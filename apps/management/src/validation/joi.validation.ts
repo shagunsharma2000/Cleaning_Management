@@ -7,6 +7,8 @@ const Admin = joi.object({
   phonenumber: joi.string().optional(),
   email: joi.string().email().optional(),
   password: joi.string().optional(),
+ 
+  
 });
 
 const login = joi.object({

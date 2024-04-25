@@ -1,6 +1,5 @@
 import express from 'express';
 import Admincontroller from '../controller/adminController'; 
-import auth from "../utils/auth";
 import validationMiddleware from '../validation/joi.validation'
 
 const router = express.Router();

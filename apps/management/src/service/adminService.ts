@@ -8,7 +8,7 @@ const secret_key="lkjhgfdskjhgfkjhgf76543kjhgf"
 
 
   class AdminService {
-    public static async registerAdmin(adminData) { // Add type annotation
+    public static async registerAdmin(adminData) { 
         try {
             // Check if email already exists
             const existingAdmin = await Admin.findOne<Admin>({ where: { email: adminData.email } });
@@ -43,11 +43,11 @@ const secret_key="lkjhgfdskjhgfkjhgf76543kjhgf"
     
     public static async login(credentials) {
         try {
-            // Find the admin by email
+           
             const admin = await Admin.findOne({ where: { email: credentials.email } });
     
             if (!admin) {
-                // If admin doesn't exist, return an error
+            
                 return { error: 'notExist', message: 'Admin not found for the provided email' };
             }
     
@@ -67,7 +67,7 @@ const secret_key="lkjhgfdskjhgfkjhgf76543kjhgf"
             return { token, message: 'Login successful' };
         } catch (error) {
             console.error('Error during admin login:', error);
-            // Handle the error appropriately (e.g., log it, return an error response)
+        
             throw new Error('Error during admin login: ' + error.message);
         }
     }
@@ -80,10 +80,10 @@ const secret_key="lkjhgfdskjhgfkjhgf76543kjhgf"
 
     public static async updateAdmin(id: string, adminData: { name: string, email: string}) {
         try {
-            // Find admin by ID
+            
             const admin = await Admin.findByPk(id);
       
-            // If admin does not exist, throw an error
+          
             if (!admin) {
                 throw new Error('Admin not found');
             }
@@ -118,49 +118,89 @@ public static async deleteAdmin(adminId: string) {
 }
 
 
+// public static async changePassword(id: string, Password: string, newPassword: string, confirmPassword: string) {
+//     console.log("fcghfjk",id)
+//     try {
+   
+//         if (!Password || !newPassword || !confirmPassword) {
+//             return { status: 400};
+//         }
+
+//         const admin = await Admin.findByPk(id);
+//         if (!admin) {
+//             return { status: 404};
+//         }
+
+     
+//         const passwordMatch = await bcrypt.compare(Password, admin.password);
+//         if (!passwordMatch) {
+//             return { status: 401};
+//         }
+
+       
+//         if (Password === newPassword) {
+//             return { status: 400};
+//         }
+
+        
+//         if (newPassword !== confirmPassword) {
+//             return { status: 400};
+//         }
+
+        
+//         const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+//         // Update Admin password with the hashed password
+//         admin.password = hashedPassword;
+//         await admin.save();
+
+
+//         return { status: 200 };
+//     } catch (error) {
+//         console.error('Error:', error);
+//         return { status: 500, message: 'Internal Server Error' };
+//     }
+// }
+
+
+
 public static async changePassword(id: string, Password: string, newPassword: string, confirmPassword: string) {
-    console.log("fcghfjk",id)
     try {
-        // Check if Password, newPassword, and confirmPassword are provided
         if (!Password || !newPassword || !confirmPassword) {
-            return { status: 400};
+            return { status: 400, message: 'Please provide all required fields.' }; // Provide a message for missing fields
         }
 
         const admin = await Admin.findByPk(id);
         if (!admin) {
-            return { status: 404};
+            return { status: 404, message: 'Admin not found.' }; // Provide a message for admin not found
         }
 
-        // Compare  password
         const passwordMatch = await bcrypt.compare(Password, admin.password);
         if (!passwordMatch) {
-            return { status: 401};
+            return { status: 401, message: 'Current password is incorrect.' }; // Provide a message for incorrect current password
         }
 
-        // Check if new password is same as old password
         if (Password === newPassword) {
-            return { status: 400};
+            return { status: 400, message: 'New password must be different from the current password.' }; // Provide a message for same old and new password
         }
 
-        
         if (newPassword !== confirmPassword) {
-            return { status: 400};
+            return { status: 400, message: 'New password and confirm password do not match.' }; // Provide a message for mismatched new and confirm passwords
         }
 
-        
         const hashedPassword = await bcrypt.hash(newPassword, 10);
 
         // Update Admin password with the hashed password
         admin.password = hashedPassword;
         await admin.save();
 
-
-        return { status: 200 };
+        return { status: 200, message: 'Password changed successfully.' }; // Provide a success message
     } catch (error) {
         console.error('Error:', error);
-        return { status: 500, message: 'Internal Server Error' };
+        return { status: 500, message: 'Internal Server Error' }; // Provide a generic error message
     }
 }
+
 
 public static async getAdminById(id: string) {
     try {

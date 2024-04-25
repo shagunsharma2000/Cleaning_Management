@@ -8,7 +8,7 @@ import logger from '../utils/logger/index'
 
 class AdminController {
     public static async registerAdmin(req: Request, res: Response) {
-        console.log("nhghffg")
+      
         try {
             const { name, phonenumber, email, password } = req.body; // Assert req.body to AdminData
     
@@ -26,7 +26,7 @@ class AdminController {
                 
             });
     
-            return res.status(201).json(successAction(201, admin, 'Admin registered successfully'));
+            return res.status(201).json(successAction(201, admin));
         } catch (err) {
             logger.error(message.errorLog('register', 'adminController', err))
             return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
@@ -77,7 +77,7 @@ public static async updateAdmin(req: Request, res: Response) {
            
         });
 
-        return res.status(200).json(successAction(200, admin, 'Admin updated successfully'));
+        return res.status(200).json(successAction(200, admin));
     } catch (err) {
         logger.error(message.errorLog('update', 'adminController', err))
         return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
@@ -133,7 +133,7 @@ public static async getAdminById(req: Request, res: Response) {
         if (!admin) {
             return res.status(statusCode.notFound).json(failAction(statusCode.notFound, 'Admin not found'));
         }
-        return res.status(statusCode.success).json(successAction(statusCode.success, admin, 'Admin found'));
+        return res.status(statusCode.success).json(successAction(statusCode.success, admin));
     } catch (err) {
         logger.error(message.errorLog('getAdminById', 'adminController', err));
         return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
