@@ -6,7 +6,7 @@ dotenv.config();
  const sequelize = new Sequelize(
 
       
-  process.env.DB_NAME || 'cleaningmanagement',
+  process.env.DB_NAME || 'management',
   process.env.DB_USER || 'root',
   process.env.DB_PASSWORD || 'Dev@12345#',
   {

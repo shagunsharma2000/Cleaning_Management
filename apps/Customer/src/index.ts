@@ -1,7 +1,8 @@
-import express from 'express'; 
-import bodyParser from 'body-parser';
-import dotenv from 'dotenv';
-import Routes from './routes/userRoutes';
+export * from './lib/customer';
+import *as express from 'express'; 
+import *as bodyParser from 'body-parser';
+import *as dotenv from 'dotenv';
+import Routes from './routes/customerRoutes';
 import helmet from "helmet";
 
 
@@ -11,7 +12,7 @@ const app = express();
 app.use(helmet());
 app.use(bodyParser.json());
 
-app.use('/user',Routes);
+app.use('/customer',Routes);
 
 app.get('/', (req, res) => {
   res.send({ message: 'Welcome to management!' });

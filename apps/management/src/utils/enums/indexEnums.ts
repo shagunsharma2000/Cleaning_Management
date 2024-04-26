@@ -1,7 +1,7 @@
 enum Role {
     Admin = "Admin",
     Staff = "Staff",
-   
-
 }
-export default Role
+
+export default Role;
+

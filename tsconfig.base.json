@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "Customer": ["apps/Customer/src/index.ts"],
+      "customer": ["customer/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,0 +1,38 @@
+2024-04-25 20:04:13 - 36f7b82d-8a27-4d3e-b89c-0afca844ee29 - error: register userController Error @ Error: Failed to register user: Unknown column 'availability' in 'field list' 
+2024-04-25 20:04:51 - 02931310-baa9-4d71-a4ff-742e15d6c146 - error: register userController Error @ Error: Failed to register user: Unknown column 'availability' in 'field list' 
+2024-04-25 20:06:49 - ce4d461e-5dec-4bff-bfc1-9fd4865ac359 - error: register userController Error @ Error: Failed to register user: Unknown column 'availability' in 'field list' 
+2024-04-25 20:26:48 - f08d626d-babf-402f-b0fb-a10f28f87fe8 - error: register userController Error @ Error: Failed to register user: Unknown column 'availability' in 'field list' 
+2024-04-25 20:37:32 - f6d3bb17-2e3a-48f5-a0c1-186fcf7057f0 - error: register userController Error @ Error: Failed to register user: Data truncated for column 'Role' at row 1 
+2024-04-25 20:43:19 - 883be638-62d0-42fe-9911-985d7bd6ee98 - error: register userController Error @ Error: Failed to register user: Data truncated for column 'Role' at row 1 
+2024-04-25 20:47:51 - d11751cd-227f-47cc-bf48-5b66e44ecb95 - error: register userController Error @ Error: Failed to register user: Data truncated for column 'Role' at row 1 
+2024-04-25 21:01:37 - 5c3bf6af-88f9-490f-bbf2-cf77729b3902 - error: register userController Error @ Error: Failed to register user: Data truncated for column 'Role' at row 1 
+2024-04-25 21:04:16 - b9a6567c-52da-4155-8cc1-679229639e02 - error: register userController Error @ Error: Failed to register user: Data truncated for column 'Role' at row 1 
+2024-04-25 21:10:30 - b293770e-3465-495d-92b8-01698f6206ff - error: register userController Error @ Error: Failed to register user: Data truncated for column 'Role' at row 1 
+2024-04-25 21:12:38 - 2e3415b5-8d6d-4e96-bb2c-e7288df7c191 - error: register userController Error @ Error: Failed to register user: Data truncated for column 'Role' at row 1 
+2024-04-25 21:12:39 - 62d682c6-35a6-458e-8315-27d64057adf2 - error: register userController Error @ Error: Failed to register user: Data truncated for column 'Role' at row 1 
+2024-04-25 21:15:17 - 10e7552d-6eff-4b95-828f-223762445334 - error: register userController Error @ Error: Failed to register user: Data truncated for column 'Role' at row 1 
+2024-04-25 21:15:18 - e03b8acf-e38e-4efe-8ece-963376dd3d01 - error: register userController Error @ Error: Failed to register user: Data truncated for column 'Role' at row 1 
+2024-04-25 21:19:25 - 49f7eb53-fda0-44ac-b800-592edff5eaa4 - error: register userController Error @ Error: Failed to register user: Data truncated for column 'Role' at row 1 
+2024-04-25 21:19:27 - 9f45f5b7-3a9f-4271-a007-fc237021812c - error: register userController Error @ Error: Failed to register user: Data truncated for column 'Role' at row 1 
+2024-04-25 21:22:06 - 1de20475-c647-42fb-8349-fe0bbb6dbfd5 - error: register userController Error @ Error: Failed to register user: Data truncated for column 'Role' at row 1 
+2024-04-25 21:25:54 - 3db1405b-5580-46d3-a80c-dbacb7e53abd - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-25 21:33:13 - d7fd3532-ed15-4000-8a93-8307d616f82e - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-25 21:33:20 - f57d917b-36e4-43c1-87e2-73be9e94fdb7 - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-25 21:33:21 - 162199a3-d6ac-4a8b-afaa-f8d47fb1724b - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-25 21:33:51 - 7261be1d-704f-4c0e-aa65-cf39c2353e87 - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-25 21:34:01 - 82d51a84-f6f3-4fcc-9bc6-781b951ed27e - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-26 04:08:44 - 6bad89a6-4a79-4115-880b-6023a01a1c1a - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-26 04:10:06 - c5daa871-5462-4159-bbfd-258bc5d787b4 - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-26 04:10:39 - 9a27cc29-5af8-4abf-b5a1-a2ca467b1e9d - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-26 04:12:01 - 74cce8ec-f40c-4a93-9cba-c5ac71169463 - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-26 04:12:27 - 4e5342c2-2c8c-45c2-9aa4-b6ad8d20c954 - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-26 04:13:32 - 81113a33-928b-4ce7-9dff-d732f707f203 - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-26 04:16:29 - d1a91324-54dc-4134-a95f-6f7d1bc55bba - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-26 04:17:09 - 7a2d421e-c139-4f07-b013-a0eac93555a0 - error: register userController Error @ Error: Failed to register user: Unknown column 'available' in 'field list' 
+2024-04-26 04:32:19 - 04d56940-2b85-4b55-be17-eafa79591099 - error: register userController Error @ Error: Failed to register user: Table 'cleaning management.Users' doesn't exist 
+2024-04-26 05:27:37 - 589c64b5-3a4e-4b47-aceb-51f888113aee - error: Failed to register user: Email already exists 
+2024-04-26 05:29:53 - 855afc71-0e06-4f4b-8e4f-e7916da3c2cc - error: Failed to register user: Email already exists 
+2024-04-26 06:44:05 - ab1ab90a-e9ef-48b9-96e0-de3934c53c45 - error: delete userController Error @ Error: Failed to delete user: User not found 
+2024-04-26 06:44:06 - eb9de8bb-9a0c-4937-ae84-895069b01260 - error: delete userController Error @ Error: Failed to delete user: User not found 
+2024-04-26 06:45:31 - c0bbed84-8e29-48b3-a491-8cbf0b8b0506 - error: update userController Error @ Error: Failed to update user: user not found 
+2024-04-26 06:46:49 - f81576d0-132c-4f6e-bd09-ba27949a85a5 - error: update userController Error @ Error: Failed to update user: user not found 
