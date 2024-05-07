@@ -1,0 +1,1056 @@
+2024-05-03 10:05:39 - 0b2714dd-6153-4f92-baf2-7e6060080c39 - error: uncaughtException: listen EADDRINUSE: address already in use :::3000
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle (node:net:1897:16)
+    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)
+    at listenInCluster (node:net:1945:12)
+    at Server.listen (node:net:2037:7)
+    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)
+    at /home/ditsdev209/Desktop/management/dist/apps/management/main.js:902:5
+    at /home/ditsdev209/Desktop/management/dist/apps/management/main.js:906:3
+    at Object.<anonymous> (/home/ditsdev209/Desktop/management/dist/apps/management/main.js:908:12)
+    at Module._compile (node:internal/modules/cjs/loader:1368:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10) {
+  "error": {
+    "code": "EADDRINUSE",
+    "errno": -98,
+    "syscall": "listen",
+    "address": "::",
+    "port": 3000
+  },
+  "stack": "Error: listen EADDRINUSE: address already in use :::3000\n    at Server.setupListenHandle (node:net:1897:16)\n    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)\n    at listenInCluster (node:net:1945:12)\n    at Server.listen (node:net:2037:7)\n    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)\n    at /home/ditsdev209/Desktop/management/dist/apps/management/main.js:902:5\n    at /home/ditsdev209/Desktop/management/dist/apps/management/main.js:906:3\n    at Object.<anonymous> (/home/ditsdev209/Desktop/management/dist/apps/management/main.js:908:12)\n    at Module._compile (node:internal/modules/cjs/loader:1368:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)",
+  "exception": true,
+  "date": "Fri May 03 2024 15:35:39 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 23939,
+    "uid": 1000,
+    "gid": 1000,
+    "cwd": "/home/ditsdev209/Desktop/management",
+    "execPath": "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+    "version": "v21.7.3",
+    "argv": [
+      "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+      "/home/ditsdev209/Desktop/management/node_modules/@nx/js/src/executors/node/node-with-require-overrides"
+    ],
+    "memoryUsage": {
+      "rss": 89960448,
+      "heapTotal": 36163584,
+      "heapUsed": 25265576,
+      "external": 2763670,
+      "arrayBuffers": 206323
+    }
+  },
+  "os": {
+    "loadavg": [
+      0.49,
+      0.73,
+      0.73
+    ],
+    "uptime": 6628.2
+  },
+  "trace": [
+    {
+      "column": 16,
+      "file": "node:net",
+      "function": "Server.setupListenHandle",
+      "line": 1897,
+      "method": "setupListenHandle",
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js",
+      "function": "Server._listen2",
+      "line": 97,
+      "method": "_listen2",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:net",
+      "function": "listenInCluster",
+      "line": 1945,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:net",
+      "function": "Server.listen",
+      "line": 2037,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js",
+      "function": "Function.listen",
+      "line": 635,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/home/ditsdev209/Desktop/management/dist/apps/management/main.js",
+      "function": null,
+      "line": 902,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 3,
+      "file": "/home/ditsdev209/Desktop/management/dist/apps/management/main.js",
+      "function": null,
+      "line": 906,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "/home/ditsdev209/Desktop/management/dist/apps/management/main.js",
+      "function": null,
+      "line": 908,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1368,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1426,
+      "method": ".js",
+      "native": false
+    }
+  ]
+}
+2024-05-03 10:05:40 - 8f716875-3193-4c59-be36-cbdcb5d2dd9f - error: uncaughtException: listen EADDRINUSE: address already in use :::4000
+Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle (node:net:1897:16)
+    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)
+    at listenInCluster (node:net:1945:12)
+    at Server.listen (node:net:2037:7)
+    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/customer/src/main.ts:37:5)
+    at Module._compile (node:internal/modules/cjs/loader:1368:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)
+    at Module.load (node:internal/modules/cjs/loader:1205:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1021:12) {
+  "error": {
+    "code": "EADDRINUSE",
+    "errno": -98,
+    "syscall": "listen",
+    "address": "::",
+    "port": 4000
+  },
+  "stack": "Error: listen EADDRINUSE: address already in use :::4000\n    at Server.setupListenHandle (node:net:1897:16)\n    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)\n    at listenInCluster (node:net:1945:12)\n    at Server.listen (node:net:2037:7)\n    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)\n    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/customer/src/main.ts:37:5)\n    at Module._compile (node:internal/modules/cjs/loader:1368:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)\n    at Module.load (node:internal/modules/cjs/loader:1205:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:1021:12)",
+  "exception": true,
+  "date": "Fri May 03 2024 15:35:40 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 24000,
+    "uid": 1000,
+    "gid": 1000,
+    "cwd": "/home/ditsdev209/Desktop/management",
+    "execPath": "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+    "version": "v21.7.3",
+    "argv": [
+      "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+      "/home/ditsdev209/Desktop/management/node_modules/@nx/js/src/executors/node/node-with-require-overrides"
+    ],
+    "memoryUsage": {
+      "rss": 93802496,
+      "heapTotal": 56086528,
+      "heapUsed": 23301760,
+      "external": 2632681,
+      "arrayBuffers": 206323
+    }
+  },
+  "os": {
+    "loadavg": [
+      0.49,
+      0.73,
+      0.73
+    ],
+    "uptime": 6629.78
+  },
+  "trace": [
+    {
+      "column": 16,
+      "file": "node:net",
+      "function": "Server.setupListenHandle",
+      "line": 1897,
+      "method": "setupListenHandle",
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js",
+      "function": "Server._listen2",
+      "line": 97,
+      "method": "_listen2",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:net",
+      "function": "listenInCluster",
+      "line": 1945,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:net",
+      "function": "Server.listen",
+      "line": 2037,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js",
+      "function": "Function.listen",
+      "line": 635,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/home/ditsdev209/Desktop/management/apps/customer/src/main.ts",
+      "function": null,
+      "line": 37,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1368,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1426,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1205,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1021,
+      "method": "_load",
+      "native": false
+    }
+  ]
+}
+2024-05-03 10:05:41 - ba9381a5-a826-4eb8-b6ae-d5d530df5d76 - error: uncaughtException: listen EADDRINUSE: address already in use :::5000
+Error: listen EADDRINUSE: address already in use :::5000
+    at Server.setupListenHandle (node:net:1897:16)
+    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)
+    at listenInCluster (node:net:1945:12)
+    at Server.listen (node:net:2037:7)
+    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/service/src/main.ts:40:5)
+    at Module._compile (node:internal/modules/cjs/loader:1368:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)
+    at Module.load (node:internal/modules/cjs/loader:1205:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1021:12) {
+  "error": {
+    "code": "EADDRINUSE",
+    "errno": -98,
+    "syscall": "listen",
+    "address": "::",
+    "port": 5000
+  },
+  "stack": "Error: listen EADDRINUSE: address already in use :::5000\n    at Server.setupListenHandle (node:net:1897:16)\n    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)\n    at listenInCluster (node:net:1945:12)\n    at Server.listen (node:net:2037:7)\n    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)\n    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/service/src/main.ts:40:5)\n    at Module._compile (node:internal/modules/cjs/loader:1368:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)\n    at Module.load (node:internal/modules/cjs/loader:1205:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:1021:12)",
+  "exception": true,
+  "date": "Fri May 03 2024 15:35:41 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 24012,
+    "uid": 1000,
+    "gid": 1000,
+    "cwd": "/home/ditsdev209/Desktop/management",
+    "execPath": "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+    "version": "v21.7.3",
+    "argv": [
+      "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+      "/home/ditsdev209/Desktop/management/node_modules/@nx/js/src/executors/node/node-with-require-overrides"
+    ],
+    "memoryUsage": {
+      "rss": 89350144,
+      "heapTotal": 36163584,
+      "heapUsed": 24962032,
+      "external": 2632681,
+      "arrayBuffers": 206323
+    }
+  },
+  "os": {
+    "loadavg": [
+      0.49,
+      0.73,
+      0.73
+    ],
+    "uptime": 6630.26
+  },
+  "trace": [
+    {
+      "column": 16,
+      "file": "node:net",
+      "function": "Server.setupListenHandle",
+      "line": 1897,
+      "method": "setupListenHandle",
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js",
+      "function": "Server._listen2",
+      "line": 97,
+      "method": "_listen2",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:net",
+      "function": "listenInCluster",
+      "line": 1945,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:net",
+      "function": "Server.listen",
+      "line": 2037,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js",
+      "function": "Function.listen",
+      "line": 635,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/home/ditsdev209/Desktop/management/apps/service/src/main.ts",
+      "function": null,
+      "line": 40,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1368,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1426,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1205,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1021,
+      "method": "_load",
+      "native": false
+    }
+  ]
+}
+2024-05-03 10:05:59 - 5951d8d8-3f50-4ea0-9c07-d82e97a48edc - error: uncaughtException: listen EADDRINUSE: address already in use :::4000
+Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle (node:net:1897:16)
+    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)
+    at listenInCluster (node:net:1945:12)
+    at Server.listen (node:net:2037:7)
+    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/customer/src/main.ts:37:5)
+    at Module._compile (node:internal/modules/cjs/loader:1368:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)
+    at Module.load (node:internal/modules/cjs/loader:1205:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1021:12) {
+  "error": {
+    "code": "EADDRINUSE",
+    "errno": -98,
+    "syscall": "listen",
+    "address": "::",
+    "port": 4000
+  },
+  "stack": "Error: listen EADDRINUSE: address already in use :::4000\n    at Server.setupListenHandle (node:net:1897:16)\n    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)\n    at listenInCluster (node:net:1945:12)\n    at Server.listen (node:net:2037:7)\n    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)\n    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/customer/src/main.ts:37:5)\n    at Module._compile (node:internal/modules/cjs/loader:1368:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)\n    at Module.load (node:internal/modules/cjs/loader:1205:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:1021:12)",
+  "exception": true,
+  "date": "Fri May 03 2024 15:35:59 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 24156,
+    "uid": 1000,
+    "gid": 1000,
+    "cwd": "/home/ditsdev209/Desktop/management",
+    "execPath": "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+    "version": "v21.7.3",
+    "argv": [
+      "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+      "/home/ditsdev209/Desktop/management/node_modules/@nx/js/src/executors/node/node-with-require-overrides"
+    ],
+    "memoryUsage": {
+      "rss": 93241344,
+      "heapTotal": 56086528,
+      "heapUsed": 23635544,
+      "external": 2632681,
+      "arrayBuffers": 206323
+    }
+  },
+  "os": {
+    "loadavg": [
+      0.5,
+      0.72,
+      0.72
+    ],
+    "uptime": 6648.17
+  },
+  "trace": [
+    {
+      "column": 16,
+      "file": "node:net",
+      "function": "Server.setupListenHandle",
+      "line": 1897,
+      "method": "setupListenHandle",
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js",
+      "function": "Server._listen2",
+      "line": 97,
+      "method": "_listen2",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:net",
+      "function": "listenInCluster",
+      "line": 1945,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:net",
+      "function": "Server.listen",
+      "line": 2037,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js",
+      "function": "Function.listen",
+      "line": 635,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/home/ditsdev209/Desktop/management/apps/customer/src/main.ts",
+      "function": null,
+      "line": 37,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1368,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1426,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1205,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1021,
+      "method": "_load",
+      "native": false
+    }
+  ]
+}
+2024-05-03 10:06:32 - f59bbbfa-a475-46d1-b5fc-5b6a30402ba7 - error: uncaughtException: listen EADDRINUSE: address already in use :::4000
+Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle (node:net:1897:16)
+    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)
+    at listenInCluster (node:net:1945:12)
+    at Server.listen (node:net:2037:7)
+    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/customer/src/main.ts:37:5)
+    at Module._compile (node:internal/modules/cjs/loader:1368:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)
+    at Module.load (node:internal/modules/cjs/loader:1205:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1021:12) {
+  "error": {
+    "code": "EADDRINUSE",
+    "errno": -98,
+    "syscall": "listen",
+    "address": "::",
+    "port": 4000
+  },
+  "stack": "Error: listen EADDRINUSE: address already in use :::4000\n    at Server.setupListenHandle (node:net:1897:16)\n    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)\n    at listenInCluster (node:net:1945:12)\n    at Server.listen (node:net:2037:7)\n    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)\n    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/customer/src/main.ts:37:5)\n    at Module._compile (node:internal/modules/cjs/loader:1368:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)\n    at Module.load (node:internal/modules/cjs/loader:1205:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:1021:12)",
+  "exception": true,
+  "date": "Fri May 03 2024 15:36:32 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 24452,
+    "uid": 1000,
+    "gid": 1000,
+    "cwd": "/home/ditsdev209/Desktop/management",
+    "execPath": "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+    "version": "v21.7.3",
+    "argv": [
+      "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+      "/home/ditsdev209/Desktop/management/node_modules/@nx/js/src/executors/node/node-with-require-overrides"
+    ],
+    "memoryUsage": {
+      "rss": 94683136,
+      "heapTotal": 41070592,
+      "heapUsed": 25281552,
+      "external": 2632681,
+      "arrayBuffers": 206323
+    }
+  },
+  "os": {
+    "loadavg": [
+      0.81,
+      0.77,
+      0.74
+    ],
+    "uptime": 6681.38
+  },
+  "trace": [
+    {
+      "column": 16,
+      "file": "node:net",
+      "function": "Server.setupListenHandle",
+      "line": 1897,
+      "method": "setupListenHandle",
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js",
+      "function": "Server._listen2",
+      "line": 97,
+      "method": "_listen2",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:net",
+      "function": "listenInCluster",
+      "line": 1945,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:net",
+      "function": "Server.listen",
+      "line": 2037,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js",
+      "function": "Function.listen",
+      "line": 635,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/home/ditsdev209/Desktop/management/apps/customer/src/main.ts",
+      "function": null,
+      "line": 37,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1368,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1426,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1205,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1021,
+      "method": "_load",
+      "native": false
+    }
+  ]
+}
+2024-05-03 10:06:56 - f6abee3c-e95e-438b-9f2e-646f54c6edf6 - error: uncaughtException: listen EADDRINUSE: address already in use :::4000
+Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle (node:net:1897:16)
+    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)
+    at listenInCluster (node:net:1945:12)
+    at Server.listen (node:net:2037:7)
+    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/customer/src/main.ts:37:5)
+    at Module._compile (node:internal/modules/cjs/loader:1368:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)
+    at Module.load (node:internal/modules/cjs/loader:1205:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1021:12) {
+  "error": {
+    "code": "EADDRINUSE",
+    "errno": -98,
+    "syscall": "listen",
+    "address": "::",
+    "port": 4000
+  },
+  "stack": "Error: listen EADDRINUSE: address already in use :::4000\n    at Server.setupListenHandle (node:net:1897:16)\n    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)\n    at listenInCluster (node:net:1945:12)\n    at Server.listen (node:net:2037:7)\n    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)\n    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/customer/src/main.ts:37:5)\n    at Module._compile (node:internal/modules/cjs/loader:1368:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)\n    at Module.load (node:internal/modules/cjs/loader:1205:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:1021:12)",
+  "exception": true,
+  "date": "Fri May 03 2024 15:36:56 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 24607,
+    "uid": 1000,
+    "gid": 1000,
+    "cwd": "/home/ditsdev209/Desktop/management",
+    "execPath": "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+    "version": "v21.7.3",
+    "argv": [
+      "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+      "/home/ditsdev209/Desktop/management/node_modules/@nx/js/src/executors/node/node-with-require-overrides"
+    ],
+    "memoryUsage": {
+      "rss": 92762112,
+      "heapTotal": 55824384,
+      "heapUsed": 23218832,
+      "external": 2632681,
+      "arrayBuffers": 206323
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.15,
+      0.84,
+      0.77
+    ],
+    "uptime": 6705.4
+  },
+  "trace": [
+    {
+      "column": 16,
+      "file": "node:net",
+      "function": "Server.setupListenHandle",
+      "line": 1897,
+      "method": "setupListenHandle",
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js",
+      "function": "Server._listen2",
+      "line": 97,
+      "method": "_listen2",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:net",
+      "function": "listenInCluster",
+      "line": 1945,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:net",
+      "function": "Server.listen",
+      "line": 2037,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js",
+      "function": "Function.listen",
+      "line": 635,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/home/ditsdev209/Desktop/management/apps/customer/src/main.ts",
+      "function": null,
+      "line": 37,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1368,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1426,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1205,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1021,
+      "method": "_load",
+      "native": false
+    }
+  ]
+}
+2024-05-03 10:06:58 - e820a211-b2a7-4fb2-a8f6-6eb63308f5c0 - error: uncaughtException: listen EADDRINUSE: address already in use :::4000
+Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle (node:net:1897:16)
+    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)
+    at listenInCluster (node:net:1945:12)
+    at Server.listen (node:net:2037:7)
+    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/customer/src/main.ts:37:5)
+    at Module._compile (node:internal/modules/cjs/loader:1368:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)
+    at Module.load (node:internal/modules/cjs/loader:1205:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1021:12) {
+  "error": {
+    "code": "EADDRINUSE",
+    "errno": -98,
+    "syscall": "listen",
+    "address": "::",
+    "port": 4000
+  },
+  "stack": "Error: listen EADDRINUSE: address already in use :::4000\n    at Server.setupListenHandle (node:net:1897:16)\n    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)\n    at listenInCluster (node:net:1945:12)\n    at Server.listen (node:net:2037:7)\n    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)\n    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/customer/src/main.ts:37:5)\n    at Module._compile (node:internal/modules/cjs/loader:1368:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)\n    at Module.load (node:internal/modules/cjs/loader:1205:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:1021:12)",
+  "exception": true,
+  "date": "Fri May 03 2024 15:36:58 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 24683,
+    "uid": 1000,
+    "gid": 1000,
+    "cwd": "/home/ditsdev209/Desktop/management",
+    "execPath": "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+    "version": "v21.7.3",
+    "argv": [
+      "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+      "/home/ditsdev209/Desktop/management/node_modules/@nx/js/src/executors/node/node-with-require-overrides"
+    ],
+    "memoryUsage": {
+      "rss": 92712960,
+      "heapTotal": 55824384,
+      "heapUsed": 23318520,
+      "external": 2632681,
+      "arrayBuffers": 206323
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.13,
+      0.85,
+      0.77
+    ],
+    "uptime": 6707.6
+  },
+  "trace": [
+    {
+      "column": 16,
+      "file": "node:net",
+      "function": "Server.setupListenHandle",
+      "line": 1897,
+      "method": "setupListenHandle",
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js",
+      "function": "Server._listen2",
+      "line": 97,
+      "method": "_listen2",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:net",
+      "function": "listenInCluster",
+      "line": 1945,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:net",
+      "function": "Server.listen",
+      "line": 2037,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js",
+      "function": "Function.listen",
+      "line": 635,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/home/ditsdev209/Desktop/management/apps/customer/src/main.ts",
+      "function": null,
+      "line": 37,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1368,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1426,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1205,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1021,
+      "method": "_load",
+      "native": false
+    }
+  ]
+}
+2024-05-03 10:07:10 - 68d172db-d8a3-4936-9156-21108a558e7b - error: uncaughtException: listen EADDRINUSE: address already in use :::4000
+Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle (node:net:1897:16)
+    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)
+    at listenInCluster (node:net:1945:12)
+    at Server.listen (node:net:2037:7)
+    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/customer/src/main.ts:37:5)
+    at Module._compile (node:internal/modules/cjs/loader:1368:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)
+    at Module.load (node:internal/modules/cjs/loader:1205:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1021:12) {
+  "error": {
+    "code": "EADDRINUSE",
+    "errno": -98,
+    "syscall": "listen",
+    "address": "::",
+    "port": 4000
+  },
+  "stack": "Error: listen EADDRINUSE: address already in use :::4000\n    at Server.setupListenHandle (node:net:1897:16)\n    at Server._listen2 (/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js:97:23)\n    at listenInCluster (node:net:1945:12)\n    at Server.listen (node:net:2037:7)\n    at Function.listen (/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js:635:24)\n    at Object.<anonymous> (/home/ditsdev209/Desktop/management/apps/customer/src/main.ts:37:5)\n    at Module._compile (node:internal/modules/cjs/loader:1368:14)\n    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1426:10)\n    at Module.load (node:internal/modules/cjs/loader:1205:32)\n    at Function.Module._load (node:internal/modules/cjs/loader:1021:12)",
+  "exception": true,
+  "date": "Fri May 03 2024 15:37:10 GMT+0530 (India Standard Time)",
+  "process": {
+    "pid": 24848,
+    "uid": 1000,
+    "gid": 1000,
+    "cwd": "/home/ditsdev209/Desktop/management",
+    "execPath": "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+    "version": "v21.7.3",
+    "argv": [
+      "/home/ditsdev209/.nvm/versions/node/v21.7.3/bin/node",
+      "/home/ditsdev209/Desktop/management/node_modules/@nx/js/src/executors/node/node-with-require-overrides"
+    ],
+    "memoryUsage": {
+      "rss": 93667328,
+      "heapTotal": 56086528,
+      "heapUsed": 23562200,
+      "external": 2632681,
+      "arrayBuffers": 206323
+    }
+  },
+  "os": {
+    "loadavg": [
+      1.51,
+      0.94,
+      0.8
+    ],
+    "uptime": 6719.04
+  },
+  "trace": [
+    {
+      "column": 16,
+      "file": "node:net",
+      "function": "Server.setupListenHandle",
+      "line": 1897,
+      "method": "setupListenHandle",
+      "native": false
+    },
+    {
+      "column": 23,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/async-listener/index.js",
+      "function": "Server._listen2",
+      "line": 97,
+      "method": "_listen2",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:net",
+      "function": "listenInCluster",
+      "line": 1945,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "node:net",
+      "function": "Server.listen",
+      "line": 2037,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "/home/ditsdev209/Desktop/management/node_modules/express/lib/application.js",
+      "function": "Function.listen",
+      "line": 635,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/home/ditsdev209/Desktop/management/apps/customer/src/main.ts",
+      "function": null,
+      "line": 37,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._compile",
+      "line": 1368,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._extensions..js",
+      "line": 1426,
+      "method": ".js",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module.load",
+      "line": 1205,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "node:internal/modules/cjs/loader",
+      "function": "Module._load",
+      "line": 1021,
+      "method": "_load",
+      "native": false
+    }
+  ]
+}

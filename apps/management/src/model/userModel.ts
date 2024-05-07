@@ -1,19 +1,10 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from '../dbConfigure/dbConnection';
-import  Role  from "../utils/enums/indexEnums"; // Assuming Role is an enum
+import  Role  from "../utils/enums/indexEnums"; 
+import {UserData} from "../../src/utils/interface/userInterface"
 
-interface IUserAttributes {
-    id: string;
-    name: string;
-    phonenumber: string; // Changed to string as BigInt is not supported by Sequelize
-    password: string;
-    email: string;
-    address: string;
-    available: boolean;
-    Role: Role; // Changed to lowercase as per naming convention
-}
 
-class User extends Model<IUserAttributes> implements IUserAttributes {
+class User extends Model <UserData> {
     public id!: string;
     public name!: string;
     public phonenumber!: string;
@@ -21,7 +12,8 @@ class User extends Model<IUserAttributes> implements IUserAttributes {
     public email!: string;
     public address!: string;
     public available!: boolean;
-    public Role!: Role; // Changed to lowercase as per naming convention
+    public assignedServices!: string;
+    public role!: Role;
     public isDeleted!: boolean;
     public deletedBy!: string;
     public deletedAt!: Date;
@@ -41,7 +33,7 @@ User.init({
         allowNull: false
     },
     phonenumber: {
-        type: DataTypes.STRING(15), // Adjusted to string type with a length
+        type: DataTypes.STRING(15), 
         allowNull: false
     },
     password: {
@@ -49,25 +41,42 @@ User.init({
         allowNull: false
     },
     email: {
-        type: DataTypes.STRING(100), // Adjusted the length as per common email length
+        type: DataTypes.STRING(100), 
         allowNull: false,
         validate: {
-            isEmail: true // Adding email format validation
+            isEmail: true 
         }
     },
     address: {
-        type: DataTypes.STRING(100), // Adjusted the length as per requirement
+        type: DataTypes.STRING(100), 
         allowNull: false
     },
     available: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
     },
-    Role: {
-                 type: DataTypes.ENUM,
-                 values: Object.values(Role),
-                 allowNull: false 
-             },
+    assignedServices: {
+        type: DataTypes.ARRAY(DataTypes.UUID), // Assuming assignedServices is an array of UUIDs
+        allowNull: true,
+    },
+    role: {
+        type: DataTypes.ENUM,
+        values: Object.values(Role),
+        allowNull: false 
+    },
+    isDeleted: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+    },
+    deletedBy: {
+        type: DataTypes.UUID, // Assuming deletedBy is a UUID
+        allowNull: true,
+    },
+    deletedAt: {
+        type: DataTypes.DATE,
+        allowNull: true,
+    },
+
 }, {
     sequelize,
     modelName: 'User' 
@@ -75,6 +84,7 @@ User.init({
 
 sequelize.sync()
     .then(() => {
+        console.log('dcbnmbvc');   
         console.log('User table linked successfully!');
     })
     .catch((error) => {

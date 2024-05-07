@@ -16,7 +16,18 @@
     "baseUrl": ".",
     "paths": {
       "Customer": ["apps/Customer/src/index.ts"],
-      "customer": ["customer/src/index.ts"]
+      "customer": ["customer/src/index.ts"],
+      "my-library": ["my-library/src/index.ts"],
+      "serv": ["apps/serv/src/index.ts"],
+      "servcis": ["apps/servcis/src/index.ts"],
+      "servcs": ["servcs/src/index.ts"],
+      "servi": ["apps/servi/src/index.ts"],
+      "servic": ["servic/src/index.ts"],
+      "service": ["service/src/index.ts"],
+      "servis": ["apps/servis/src/index.ts"],
+      "servss": ["apps/servss/src/index.ts"],
+      "srvs": ["apps/srvs/src/index.ts"],
+      "task": ["apps/task/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
