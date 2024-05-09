@@ -9,11 +9,13 @@ const router = express.Router();
 //service create//
 router.post('/create',(req,res,next)=> validationMiddleware(req, res, next,'service'),auth,serviceController.serviceCreate);
 
-//getUserCustomerById //
-router.get('getUserCustomer/:id',serviceController.getUserCustomerById);
+
+// getUserServiceById //
+router.get('/getServiceById/:id', serviceController.getServiceById);
+
 
 // service booking //
-router.post('booking',serviceController.serviceBooking);
+router.post('/booking',serviceController.serviceBooking);
 
 //  service assign  //
 router.post('/assign-service', serviceController.assignServiceToStaff);

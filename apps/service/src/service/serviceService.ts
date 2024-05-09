@@ -3,6 +3,7 @@ import  dotenv from 'dotenv';
 import logger from '../utils/logger/index'
 import customer from '../../../customer/src/model/customerModel';
 import user from '../../../management/src/model/userModel';
+import Status from '../utils/enums/indexEnums';
 
 dotenv.config();
 
@@ -27,9 +28,9 @@ public static async serviceCreate(serviceData) {
     const createdService = await service.create({
       name,
       description,
-      price,
+      price,   
       duration,
-      status: 'active', // Provide a default status value
+      status: Status.confirm, // Provide a default status value
       dateTime: new Date() 
     });
 
@@ -42,21 +43,15 @@ public static async serviceCreate(serviceData) {
 }
 
 
-
-
-
-
-// service by UserCustomer //
-public static async getUserCustomerById(id: string) {
-    try {
-        const usercustomer = await service.findByPk(id);
-        return usercustomer;
-    } catch (error) {
-        throw new error(`Failed to get usercustomer by id: ${error.message}`);
-    }
+// get Service By Id //
+public static async getServiceById(id: string) {
+  try {
+      const services = await service.findByPk(id);
+      return service;
+  } catch (error) {
+      throw new Error(`Failed to get service by id: ${error.message}`);
+  }
 }
-
-
 
   
 // select the service booking //

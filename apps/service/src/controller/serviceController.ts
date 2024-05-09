@@ -33,25 +33,25 @@ public static async serviceCreate(req: Request, res: Response) {
 
 
 /*********** getUserCustomerById ************/
-public static async getUserCustomerById(req: Request, res: Response) {
+
+
+public static async getServiceById(req: Request, res: Response) {
   try {
     const id: string = req.params.id;
     if (!id) {
-      return res.status(statusCode.badRequest).json(failAction(statusCode.badRequest, 'UserCustomer ID is required'));
+      return res.status(statusCode.badRequest).json(failAction(statusCode.badRequest, 'service ID is required'));
     }
-    const Service = await service.getUserCustomerById(id);
-    console.log(Service, "ebvcfgfhgh")
-    if (!Service) {
-      return res.status(statusCode.notFound).json(failAction(statusCode.notFound, 'UserCustomer not found'));
+    const services = await service.getServiceById(id);
+    console.log(services, "ebvcfgfhgh")
+    if (!services) {
+      return res.status(statusCode.notFound).json(failAction(statusCode.notFound, 'service not found'));
     }
-    return res.status(statusCode.success).json(successAction(statusCode.success, Service));
+    return res.status(statusCode.success).json(successAction(statusCode.success, services));
   } catch (err) {
-    logger.error(message.errorLog('getUserCustomerById', 'serviceController', err));
+    logger.error(message.errorLog('getServiceById', 'serviceController', err));
     return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
   }
 }
-
-
 
 
 public static async serviceBooking(req: Request, res: Response) {
