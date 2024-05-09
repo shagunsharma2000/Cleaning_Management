@@ -15,7 +15,7 @@ router.get('getUserCustomer/:id',serviceController.getUserCustomerById);
 // service booking //
 router.post('booking',serviceController.serviceBooking);
 
-//    //
+//  service assign  //
 router.post('/assign-service', serviceController.assignServiceToStaff);
 export default router;
 

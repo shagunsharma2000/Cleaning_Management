@@ -9,24 +9,30 @@ import user from '../../../management/src/model/userModel';
 
 class serviceController {
 //service create //
+
 public static async serviceCreate(req: Request, res: Response) {
   try {
-      const serviceData = req.body;
-      console.log("hjkl;",serviceData)
+    const serviceData = req.body;
 
-     const Service = await service.serviceCreate(serviceData);
+    // Call the serviceCreate method from your service class
+    const createdService = await service.serviceCreate(serviceData);
 
-     if (!Service) {
-      return res.status(statusCode.notFound).json(failAction(statusCode.notFound, 'Admin not created the  service'));
+    // Check if service creation was successful
+    if (!createdService) {
+      return res.status(statusCode.notFound).json(failAction(statusCode.notFound, 'Service not created'));
     }
-      return res.status(201).json(successAction(201, Service));
+
+  
+    return res.status(201).json(successAction(statusCode.success, createdService));
   } catch (err) {
-      logger.error(message.errorLog('create', 'serviceController', err))
-      return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
-      return err
+    
+    logger.error(message.errorLog('create', 'serviceController', err));
+    return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
   }
 }
 
+
+/*********** getUserCustomerById ************/
 public static async getUserCustomerById(req: Request, res: Response) {
   try {
     const id: string = req.params.id;

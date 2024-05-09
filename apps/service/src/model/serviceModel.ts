@@ -7,10 +7,9 @@ import { defaultValueSchemable } from "sequelize/types/utils";
 
 class service extends Model <serviceData> {
     public id!: number;
-    public customerid!:number;
-    public serviceid!:number;
     public name!: string;
     public description!: string;
+    public duration!: String;
     public price!: number;
     public status!: Status;
     public dateTime!: Date;
@@ -23,18 +22,6 @@ class service extends Model <serviceData> {
 
 service.init({ 
     id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        allowNull: false,
-        primaryKey: true
-    },
-    customerid:{
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        allowNull: false,
-        primaryKey: true
-    },
-    serviceid:{
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
@@ -57,8 +44,8 @@ service.init({
       },
       status: {
         type: DataTypes.ENUM,
-        values: Object.values('pending'),
-        allowNull: false 
+        values: Object.values(Status),
+        allowNull: false  
     },
     dateTime:{
         type: DataTypes.DATE,

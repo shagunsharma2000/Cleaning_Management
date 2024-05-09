@@ -19,10 +19,10 @@ router.put('/update/:id',(req,res,next)=> validationMiddleware(req, res, next,'u
 router.put('/changepassword/:id', (req, res, next) => validationMiddleware(req, res, next,'Customer'),auth, customerController.changePassword);
 
 //getCustomerbyid route//
-router.get('/getCustomerById/:id',(req, res, next) => validationMiddleware(req, res, next,'Customer'),auth, customerController.getCustomerById);
+router.get('/getCustomerById/:id', customerController.getCustomerById);
 
 //delete route//
-router.delete('/delete/:id',(req, res, next) => validationMiddleware(req, res, next,'Customer'),auth,customerController.deleteCustomer);
+router.delete('/delete/:id',auth,customerController.deleteCustomer);
 
 
 export default router;

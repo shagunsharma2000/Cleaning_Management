@@ -26,8 +26,9 @@ const login = joi.object({
 const update = joi.object({
   name: joi.string().min(2).max(25).optional(),
   email: joi.string().email().optional(),
- 
+  role: joi.string().valid('Admin', 'Staff').required(),
   
+
 });
 
 

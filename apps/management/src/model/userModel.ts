@@ -12,7 +12,6 @@ class User extends Model <UserData> {
     public email!: string;
     public address!: string;
     public available!: boolean;
-    public assignedServices!: string;
     public role!: Role;
     public isDeleted!: boolean;
     public deletedBy!: string;
@@ -53,11 +52,7 @@ User.init({
     },
     available: {
         type: DataTypes.BOOLEAN,
-        defaultValue: false,
-    },
-    assignedServices: {
-        type: DataTypes.ARRAY(DataTypes.UUID), // Assuming assignedServices is an array of UUIDs
-        allowNull: true,
+        defaultValue: true,
     },
     role: {
         type: DataTypes.ENUM,
@@ -66,7 +61,7 @@ User.init({
     },
     isDeleted: {
         type: DataTypes.BOOLEAN,
-        defaultValue: false,
+        defaultValue: true,
     },
     deletedBy: {
         type: DataTypes.UUID, // Assuming deletedBy is a UUID

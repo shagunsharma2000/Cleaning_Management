@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import * as dotenv from 'dotenv';
 import logger from '../utils/logger/index'
 import { comparePassword, hashPassword } from '../utils/common';
+import Role from '../utils/enums/indexEnums';
 
 
 dotenv.config();
@@ -15,10 +16,10 @@ dotenv.config();
     public static async registerUser(userData) {
     try {
         const { name, phonenumber, password, available, email, address, role } = userData;
-        console.log("32352",userData)
+       
 
        
-        const existingUser = await User.findOne<User>({ where: { email } });
+        const existingUser = await User.findOne({ where: { email } });
         if (existingUser) {
             throw new Error('Email already exists');
         }
@@ -26,7 +27,7 @@ dotenv.config();
         const hashedPassword = await bcrypt.hash(password, 10);
 
     
-        const user = await User.create({
+        return await User.create({
             name,
             phonenumber,
             available,
@@ -36,7 +37,7 @@ dotenv.config();
             role,
         });
 
-        return user;
+   
     } catch (error) {
         logger.error(`Failed to register user: ${error.message}`);
         throw new Error('Failed to register user');
@@ -68,7 +69,7 @@ dotenv.config();
     
             // Generate token
           
-            const token = jwt.sign({ id: user.id },process.env.SECRET_KEY , { expiresIn: '1h' });
+            const token = jwt.sign({ id: user.id,Role:user.role },process.env.SECRET_KEY , { expiresIn: '1h' });
             
     
             return { token, message: 'Login successful' };
@@ -85,7 +86,7 @@ dotenv.config();
     
 
 // user update service
-    public static async updateUser(id: string, userData: { name: string, email: string}) {
+    public static async updateUser(id: string, userData: { name: string, email: string, role: any}) {
         try {
             
             const user= await User.findByPk(id);
@@ -98,7 +99,7 @@ dotenv.config();
             // Update user data
             user.name = userData.name;
             user.email = userData.email;
-      
+            user.role = userData.role;
             // Save changes to the database
             await user.save();
       
@@ -128,67 +129,66 @@ dotenv.config();
     }
 
   
-
-// //user change password service//
-// public static async changePassword(data, userId: string) {
+// public static async changePasswordService(data) {
 //     try {
-//       const { oldPassword, newPassword, confirmPassword } = data;
-  
+//       const { oldPassword, newPassword, confirmPassword, userId } = data;
 //       if (newPassword !== confirmPassword) {
-//         return 'newPassword!=confirmPassword'; 
+//         return 'newPassword!=ConfirmPassword'; 
 //       }
-//       const existingUser = await User.findByPk(userId);
+    
+//       const existingUser = await User.findOne({
+        
+//         where: {
+//           id: userId
+//         }
+//       });
 //       if (!existingUser) {
-//         return 'userDoesNotExists';
+         
+//         return 'userDoesNotExists'; 
 //       }
-//       console.log(existingUser);
 //       const isMatch = await comparePassword(oldPassword, existingUser.password);
 //       if (!isMatch) {
-//         return 'PasswordIncorrect'; 
+//         return 'oldPasswordIncorrect'; 
 //       }
-//       const pass = await hashPassword(newPassword);
-//       existingUser.password = pass;
-//       await existingUser.update({ password: pass });
+//       const hashedPassword = await hashPassword(newPassword);
+//       existingUser.password = hashedPassword;
+//       await existingUser.save();
   
-//       return existingUser
-//     } catch (err) {
+//       return existingUser; // Return updated user
+//     }
+//     catch (err) {
 //       logger.error(err);
 //       throw new Error(err.message);
 //     }
-//   }  
+//   }
 
+// userService.ts
 public static async changePasswordService(data) {
     try {
       const { oldPassword, newPassword, confirmPassword, userId } = data;
-  
       if (newPassword !== confirmPassword) {
-        return 'newPassword!=ConfirmPassword'; 
+        return 'newPassword!=ConfirmPassword';
       }
-      const existingUser = await User.findOne({
-        
-        where: {
-          id: userId
-        }
-      });
+    
+      const existingUser = await User.findByPk(userId);
       if (!existingUser) {
-         
-        return 'userDoesNotExists'; 
+        return 'userDoesNotExists';
       }
       const isMatch = await comparePassword(oldPassword, existingUser.password);
       if (!isMatch) {
-        return 'oldPasswordIncorrect'; 
+        return 'oldPasswordIncorrect';
       }
       const hashedPassword = await hashPassword(newPassword);
       existingUser.password = hashedPassword;
       await existingUser.save();
   
-      return existingUser; // Return updated user
-    }
-    catch (err) {
+      return 'success'; // Indicate success
+    } catch (err) {
       logger.error(err);
       throw new Error(err.message);
     }
   }
+  
 
 
 // user getUserById service//

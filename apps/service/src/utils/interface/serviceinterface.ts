@@ -1,7 +1,7 @@
 export interface serviceData {
     id?: number;
-    customerid?:number;
-    serviceid?:number;
+    // customerid?:number;
+    // serviceid?:number;
     name?: string;
     description?: string;
     price?:number;

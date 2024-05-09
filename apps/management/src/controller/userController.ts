@@ -3,6 +3,11 @@ import { message, statusCode } from '../utils/constants';
 import { successAction, failAction } from '../utils/response';
 import { Request, Response } from 'express';
 import logger from '../utils/logger/index';
+import jwt from "jsonwebtoken"
+import dotenv from "dotenv"
+import Role from '../utils/enums/indexEnums';
+import { stat } from 'fs/promises';
+dotenv.config()
 
 
 
@@ -49,14 +54,10 @@ public static async registerUser(req: Request, res: Response) {
   public static async updateUser(req: Request, res: Response) {
     try {
       const { id } = req.params;
-      const { name, email } = req.body; // Assert req.body to UserData
+      const { name, email, role} = req.body // Assert req.body to UserData
 
       // Pass only necessary fields to updateUser function
-      const user = await userServices.updateUser(id, {
-        name,
-        email,
-
-      });
+      const user = await userServices.updateUser(id, req.body);
 
       return res.status(200).json(successAction(200, user));
     } catch (err) {
@@ -87,40 +88,7 @@ public static async deleteUser(req: Request, res: Response) {
   }
 }
 
-
-// //user change password//
-//   public static async changePassword(req: Request, res: Response) {
-//     try {
-//       const data = req.body;
-//       const userId: string = req.params.id; 
-
-//       const userData = await userServices.changePassword(data, userId);
-//       if (userData === 'newPassword!=confirmPassword') { 
-//         res.status(statusCode.badRequest).json(
-//           failAction(statusCode.notAllowed, data, message.somethingWrong)
-//         );
-//       } else if (userData === 'userDoesNotExists') {
-//         res.status(statusCode.notFound).json(
-//           failAction(statusCode.emailOrUserExist, data, message.notExist('user'))
-//         );
-//       } else if (userData === 'PasswordIncorrect') { 
-//         res.status(statusCode.unauthorized).json( 
-//           failAction(statusCode.unauthorized, data, message.somethingWrong) 
-//         );
-//       } else {
-//         res.status(statusCode.success).json(
-//           successAction(statusCode.success, data, message.update('Password'))
-//         );
-//       }
-//     } catch (err) {
-//       logger.error(message.errorLog('userUpdate', 'userController', err)); 
-//       res.status(statusCode.emailOrUserExist).json(
-//         failAction(statusCode.badRequest, err.message, message.somethingWrong)
-//       );
-//     }
-//   }
-
-
+// user change password API // 
 public static async changePassword(req: Request, res: Response) {
   try {
     const { oldPassword, newPassword, confirmPassword } = req.body;
@@ -132,6 +100,8 @@ public static async changePassword(req: Request, res: Response) {
       confirmPassword,
       userId
     });
+
+      return res.status(statusCode.success).json(successAction(statusCode.success,req.body))
     if (userData === 'newPassword!=ConfirmPassword') {
       return res.status(statusCode.badRequest).json(failAction(statusCode.notAllowed, req.body, message.somethingWrong));
     }
@@ -147,6 +117,7 @@ public static async changePassword(req: Request, res: Response) {
     return res.status(statusCode.emailOrUserExist).json(failAction(statusCode.badRequest, err.message, message.somethingWrong));
   }
 }
+
 
 
 

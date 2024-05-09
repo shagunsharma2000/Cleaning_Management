@@ -16,7 +16,7 @@ dotenv.config();
     try {
         const { name, phonenumber, password, email, address} = customerData;
        
-        const existingCustomer = await Customer.findOne<Customer>({ where: { email } });
+        const existingCustomer = await Customer.findOne({ where: { email } });
         if (existingCustomer) {
             throw new Error('Email already exists');
         }

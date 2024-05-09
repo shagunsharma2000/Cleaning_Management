@@ -8,7 +8,6 @@ export interface UserData {
     email: string;
     password: string;
     address: string;
-    assignedServices:string;
     role?: role;
     isDeleted?: boolean;
     deletedBy?: string;

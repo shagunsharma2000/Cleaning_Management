@@ -60,3 +60,60 @@ It will show tasks that you can run with Nx.
 - [Join the community](https://nx.dev/community)
 - [Subscribe to the Nx Youtube Channel](https://www.youtube.com/@nxdevtools)
 - [Follow us on Twitter](https://twitter.com/nxdevtools)
+
+
+##  create new workspace command to generate the folder structure
+
+-  npx create-nx-workspace@latest
+
+create new folder !
+                 
+## To create a new workspace with a pre-created Express app
+
+- npx create-nx-workspace --preset=express
+
+## Setting Up @nx/express Installation
+ 
+- nx add @nx/express
+
+
+##   SET UP COMMAND
+
+- it sets up a new Nx workspace in your current directory
+- npx nx@latest init
+
+##  single project run as a starting  phase command build 
+
+- npm nx serve management`
+
+As a start the application and start the development server
+
+## Build for production
+
+Run `npx nx build management` to build the application. The build artifacts are stored in the output directory (e.g. `dist/` or `build/`), ready to be deployed.
+
+##   create the new library  project command 
+
+
+- nx generate @nrwl/node:application library-name.
+
+## Second project single run command
+
+- "nx show project project-name --web "
+
+## Second project e2e file run command
+
+
+- "nx show project project-name  e2e --web "
+
+##  nx monorepo all port project run one time command set 
+
+-      "all": "npx nx run-many --target=serve --all --maxParallel=100",
+
+This is the command set on package.json file  to save this and run the commands npm run all.
+
+## Clears all the cached Nx artifacts and metadata about the workspace and shuts down the Nx Daemon
+  
+  -  nx reset
+
+ 
