@@ -35,7 +35,7 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/service-e2e/**/*"]
+      "exclude": ["apps/service-e2e/**/*", "apps/cleaning-equipements-e2e/**/*", "apps/cleaning-equipement-e2e/**/*"]
     }
   ],
   "targetDefaults": {

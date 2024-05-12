@@ -16,7 +16,12 @@
     "baseUrl": ".",
     "paths": {
       "Customer": ["apps/Customer/src/index.ts"],
+      "app/equipement": ["app/equipement/src/index.ts"],
+      "cleaning-equipement": ["apps/cleaning-equipement/src/index.ts"],
+      "cleaning-equipements": ["apps/cleaning-equipements/src/index.ts"],
+      "cleaningEquipements": ["apps/cleaningEquipements/src/index.ts"],
       "customer": ["customer/src/index.ts"],
+      "equipement": ["equipement/src/index.ts"],
       "my-library": ["my-library/src/index.ts"],
       "serv": ["apps/serv/src/index.ts"],
       "servcis": ["apps/servcis/src/index.ts"],
