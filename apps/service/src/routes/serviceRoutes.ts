@@ -12,8 +12,9 @@ router.post('/create', (req, res, next) => validationMiddleware(req, res, next, 
 router.get('/getServiceById/:id', serviceController.getServiceById);
 
 // service booking //
-router.post('/booking', serviceController.serviceBooking);
+// router.post('/booking', serviceController.serviceBooking);
 
 //  service assign  //
 router.post('/assign-service', serviceController.assignServiceToStaff);
+
 export default router;

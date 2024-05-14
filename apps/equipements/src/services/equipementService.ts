@@ -5,12 +5,13 @@ import slugify from 'slugify';
 export class equipementServices {
   public static async addTools(body: any) {
     try {
-      const slug = slugify(body.toolName, { lower: true });
+      // Transform toolName into slug format
+      const transformedSlug = slugify(body.toolName, { lower: true });
 
       const tool = await Equipements.create({
         toolName: body.toolName,
         description: body.description,
-        slug: slug,
+        slug: transformedSlug,
       });
       return tool;
     } catch (err: any) {
@@ -18,13 +19,12 @@ export class equipementServices {
       throw new Error(err.message);
     }
   }
-
   //Listing of tools
   public static async toolListing(query: any) {
     try {
       const toolData = await Equipements.findAll({
         where: { isDeleted: false },
-        attributes: ['id', 'name', 'description', 'price'],
+        attributes: ['id', 'toolName', 'description', 'slug'],
         order: [['createdAt', 'asc']],
         offset: query.page ? (parseInt(query.page) - 1) * parseInt(query.limit) : 0,
         limit: query.limit ? parseInt(query.limit) : 10,
@@ -68,11 +68,13 @@ export class equipementServices {
       throw new Error(err.message);
     }
   }
+
   //Soft Delete tool
   public static async toolDelete(toolId: string) {
     try {
       const tool = await Equipements.findOne({ where: { id: toolId } });
       if (!tool) {
+        
         return 'NotExist';
       } else {
         const today = new Date();

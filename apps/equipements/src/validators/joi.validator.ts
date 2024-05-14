@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
+import Joi from 'joi';
 import joi, { ValidationError } from 'joi';
 
 // Object schema validation
@@ -6,15 +7,15 @@ const listing = joi.object({
   limit: joi.number().required(),
   page: joi.number().required(),
   sortBy: joi.string().required(),
-  sort: joi.number().required(),
+  sort: joi.string().required(),
   searchBy: joi.string().optional(),
   keyword: joi.string().optional(),
 });
 
 const tool = joi.object({
   toolName: joi.string().required(),
-  slug: joi.string().required(),
-  description: joi.string().required(),
+  slug: joi.string().optional(),
+  description: Joi.string().min(10).max(200).required(),
 });
 
 const validationMiddleware = async (req: Request, res: Response, next: NextFunction, schema: string) => {

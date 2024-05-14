@@ -6,12 +6,13 @@ import joi from 'joi';
 const service = joi.object({
   name: joi.string().min(2).max(25).optional(),
   description: joi.string().optional(),
+  address: joi.string().required(),
   price: joi.string().required(),
   duration: joi.string().min(2).max(10).optional(),
 });
 
 const validationMiddleware = async (req, res, next, schema) => {
-  console.log(schema, 'in validation');
+  //console.log(schema, 'in validation');
   const option = {
     abortEarly: false,
     allowUnknown: false,

@@ -8,7 +8,6 @@ const sequelize = new Sequelize(process.env.DB_NAME || 'management', process.env
   dialect: 'mysql',
   logging: console.log,
 });
-
 sequelize
   .authenticate()
   .then(() => {

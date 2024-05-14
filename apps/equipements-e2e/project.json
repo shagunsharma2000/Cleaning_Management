@@ -1,17 +1,17 @@
 {
-  "name": "cleaning-equipement-e2e",
+  "name": "equipements-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "implicitDependencies": ["cleaning-equipement"],
+  "implicitDependencies": ["equipements"],
   "targets": {
     "e2e": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
       "options": {
-        "jestConfig": "apps/cleaning-equipement-e2e/jest.config.ts",
+        "jestConfig": "apps/equipements-e2e/jest.config.ts",
         "passWithNoTests": true
       },
-      "dependsOn": ["cleaning-equipement:build"]
+      "dependsOn": ["equipements:build"]
     }
   }
 }

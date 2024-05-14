@@ -1,7 +1,7 @@
 {
-  "name": "cleaning-equipement",
+  "name": "equipements",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/cleaning-equipement/src",
+  "sourceRoot": "apps/equipements/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -11,12 +11,12 @@
       "defaultConfiguration": "production",
       "options": {
         "platform": "node",
-        "outputPath": "dist/apps/cleaning-equipement",
+        "outputPath": "dist/apps/equipements",
         "format": ["cjs"],
         "bundle": false,
-        "main": "apps/cleaning-equipement/src/main.ts",
-        "tsConfig": "apps/cleaning-equipement/tsconfig.app.json",
-        "assets": ["apps/cleaning-equipement/src/assets"],
+        "main": "apps/equipements/src/main.ts",
+        "tsConfig": "apps/equipements/tsconfig.app.json",
+        "assets": ["apps/equipements/src/assets"],
         "generatePackageJson": true,
         "esbuildOptions": {
           "sourcemap": true,
@@ -41,14 +41,14 @@
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "cleaning-equipement:build"
+        "buildTarget": "equipements:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "cleaning-equipement:build:development"
+          "buildTarget": "equipements:build:development"
         },
         "production": {
-          "buildTarget": "cleaning-equipement:build:production"
+          "buildTarget": "equipements:build:production"
         }
       }
     }

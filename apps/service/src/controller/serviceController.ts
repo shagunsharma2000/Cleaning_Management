@@ -6,7 +6,7 @@ import logger from '../utils/logger/index';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import customer from '../../../customer/src/model/customerModel';
 
-class serviceController {
+export class serviceController {
   //service create //
 
   public static async serviceCreate(req: Request, res: Response) {
@@ -48,35 +48,35 @@ class serviceController {
     }
   }
 
-  public static async serviceBooking(req: Request, res: Response) {
-    try {
-      const servicedata: any = req.body;
-      const { customerid, serviceid, dateTime } = servicedata;
+  // public static async serviceBooking(req: Request, res: Response) {
+  //   try {
+  //     const servicedata: any = req.body;
+  //     const { customerid, serviceid, dateTime } = servicedata;
 
-      if (!customerid || !serviceid || !dateTime) {
-        return res.status(statusCode.badRequest).json(failAction(statusCode.badRequest, 'customerid, serviceid, and dateTime are required'));
-      }
+  //     if (!customerid || !serviceid || !dateTime) {
+  //       return res.status(statusCode.badRequest).json(failAction(statusCode.badRequest, 'customerid, serviceid, and dateTime are required'));
+  //     }
 
-      const customerExists = await customer.findByPk(customerid);
-      if (!customerExists) {
-        return res.status(statusCode.notFound).json(failAction(statusCode.notFound, 'Customer not found'));
-      }
+  //     const customerExists = await customer.findByPk(customerid);
+  //     if (!customerExists) {
+  //       return res.status(statusCode.notFound).json(failAction(statusCode.notFound, 'Customer not found'));
+  //     }
 
-      const serviceExists = await service.findOne({ where: { id: serviceid } });
-      if (!serviceExists) {
-        return res.status(statusCode.notFound).json(failAction(statusCode.badRequest, 'Service not found'));
-      }
+  //     const serviceExists = await service.findOne({ where: { id: serviceid } });
+  //     // if (!serviceExists) {
+  //     //   return res.status(statusCode.notFound).json(failAction(statusCode.badRequest, 'Service not found'));
+  //     // }
 
-      // Call service to create booking
-      const booking = await service.serviceBooking(servicedata);
+  //     // Call service to create booking
+  //     const booking = await service.serviceBooking(servicedata);
 
-      // Return success response
-      return res.status(statusCode.success).json(successAction(statusCode.success, 'serviceBooking created successfully'));
-    } catch (err) {
-      logger.error(message.errorLog('serviceBooking', 'serviceController', err));
-      return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
-    }
-  }
+  //     // Return success response
+  //     return res.status(statusCode.success).json(successAction(statusCode.success, 'serviceBooking created successfully'));
+  //   } catch (err) {
+  //     logger.error(message.errorLog('serviceBooking', 'serviceController', err));
+  //     return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
+  //   }
+  // }
 
   public static async assignServiceToStaff(req: Request, res: Response) {
     try {

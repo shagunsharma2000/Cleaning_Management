@@ -1,8 +1,9 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from '../dbConfig/dbConnection';
 import slugify from 'slugify';
+import { IEquipements } from '../utils/interface/IEquipements';
 
-class Equipements extends Model {
+class Equipements extends Model<IEquipements> {
   public id!: string;
   public toolName!: string;
   public description!: string;
@@ -30,7 +31,7 @@ Equipements.init(
       unique: true,
     },
     description: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(100),
     },
     isDeleted: {
       type: DataTypes.BOOLEAN,
@@ -51,7 +52,7 @@ Equipements.init(
     hooks: {
       // Hook to automatically generate a slug before creating a new record
 
-      beforeCreate: (equipenments: Equipements, options) => {
+      beforeCreate: (equipenments: Equipements) => {
         equipenments.slug = slugify(equipenments.toolName, { lower: true });
       },
     },

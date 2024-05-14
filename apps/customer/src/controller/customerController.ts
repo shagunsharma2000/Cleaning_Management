@@ -1,125 +1,105 @@
-import customerServices from '../service/customerService'
+import customerServices from '../service/customerService';
 import { message, statusCode } from '../utils/constants';
 import { successAction, failAction } from '../utils/response';
 import { Request, Response } from 'express';
 import logger from '../utils/logger/index';
-
-
+import customerService from '../service/customerService';
+import { calculateDistance } from '../utils/location/location';
 
 class customerController {
-//customer create //
-public static async registerCustomer(req: Request, res: Response) {
-  try {
+  //customer create //
+  public static async registerCustomer(req: Request, res: Response) {
+    try {
       const customerData = req.body;
-      console.log("hjkl;",customerData)
+      // console.log("hjkl;",customerData)
 
-     const user = await customerServices.registerCustomer(customerData);
+      const user = await customerServices.registerCustomer(customerData);
       return res.status(201).json(successAction(201, user));
-  } catch (err) {
-      logger.error(message.errorLog('register', 'customerController', err))
+    } catch (err) {
+      logger.error(message.errorLog('register', 'customerController', err));
       return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
-      return err
+      return err;
+    }
   }
-}
 
- 
-
- //customer login//
+  //customer login//
   public static async login(req: Request, res: Response) {
     try {
-    
       const data = await customerServices.login(req.body);
 
       if (data.error === 'invalidPassword' || data.error === 'notExist') {
-     
         res.status(statusCode.unauthorized).json(failAction(statusCode.badRequest, data.error, data.message));
       } else {
-       
         res.status(statusCode.success).json(successAction(statusCode.success, { token: data.token }, data.message));
       }
     } catch (err) {
-      logger.error(message.errorLog('login', 'customerController', err))
+      logger.error(message.errorLog('login', 'customerController', err));
       res.status(statusCode.badRequest).json(failAction(statusCode.badRequest, err.message, message.somethingWrong));
     }
   }
 
-
-// customer update//
+  // customer update//
   public static async updateCustomer(req: Request, res: Response) {
     try {
       const { id } = req.params;
-      const { name, email } = req.body; 
+      const { name, email } = req.body;
 
-    
       const customer = await customerServices.updateCustomer(id, {
         name,
         email,
-
       });
 
       return res.status(200).json(successAction(200, customer));
     } catch (err) {
-      logger.error(message.errorLog('update', 'customerController', err))
+      logger.error(message.errorLog('update', 'customerController', err));
       return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
     }
   }
 
-
-//user delete//
-public static async deleteCustomer(req: Request, res: Response) {
-  try {
+  //user delete//
+  public static async deleteCustomer(req: Request, res: Response) {
+    try {
       const customerId = req.params.id;
 
-     
       await customerServices.softdeleteCustomer(customerId);
-      
+
       res.status(statusCode.success).json({
-          statusCode: statusCode.success,
-          message: message.delete('customer') 
+        statusCode: statusCode.success,
+        message: message.delete('customer'),
       });
-  } catch (err) {
-      logger.error(message.errorLog('delete', 'customerController', err))
-      res.status(statusCode.badRequest).json({
-          statusCode: statusCode.badRequest,
-          error: err.message,
-          message: message.somethingWrong
-      });
-  }
-}
-
-//customer change password//
-  public static async changePassword(req: Request, res: Response) {
-    try {
-      const data = req.body;
-      const customerId: string = req.params.id; 
-
-      const customerData = await customerServices.changePassword(data, customerId);
-      if (customerData === 'newPassword!=confirmPassword') { 
-        res.status(statusCode.badRequest).json(
-          failAction(statusCode.notAllowed, data, message.somethingWrong)
-        );
-      } else if (customerData === 'customerDoesNotExists') {
-        res.status(statusCode.notFound).json(
-          failAction(statusCode.emailOrCustomerExist, data, message.notExist('customer'))
-        );
-      } else if (customerData === 'PasswordIncorrect') { 
-        res.status(statusCode.unauthorized).json( 
-          failAction(statusCode.unauthorized, data, message.somethingWrong) 
-        );
-      } else {
-        res.status(statusCode.success).json(
-          successAction(statusCode.success, data, message.update('Password'))
-        );
-      }
     } catch (err) {
-      logger.error(message.errorLog('customerUpdate', 'customerController', err)); 
-      res.status(statusCode.emailOrCustomerExist).json(
-        failAction(statusCode.badRequest, err.message, message.somethingWrong)
-      );
+      logger.error(message.errorLog('delete', 'customerController', err));
+      res.status(statusCode.badRequest).json({
+        statusCode: statusCode.badRequest,
+        error: err.message,
+        message: message.somethingWrong,
+      });
     }
   }
 
-//customer getCustomerById //
+  //customer change password//
+  public static async changePassword(req: Request, res: Response) {
+    try {
+      const data = req.body;
+      const customerId: string = req.params.id;
+
+      const customerData = await customerServices.changePassword(data, customerId);
+      if (customerData === 'newPassword!=confirmPassword') {
+        res.status(statusCode.badRequest).json(failAction(statusCode.notAllowed, data, message.somethingWrong));
+      } else if (customerData === 'customerDoesNotExists') {
+        res.status(statusCode.notFound).json(failAction(statusCode.emailOrCustomerExist, data, message.notExist('customer')));
+      } else if (customerData === 'PasswordIncorrect') {
+        res.status(statusCode.unauthorized).json(failAction(statusCode.unauthorized, data, message.somethingWrong));
+      } else {
+        res.status(statusCode.success).json(successAction(statusCode.success, data, message.update('Password')));
+      }
+    } catch (err) {
+      logger.error(message.errorLog('customerUpdate', 'customerController', err));
+      res.status(statusCode.emailOrCustomerExist).json(failAction(statusCode.badRequest, err.message, message.somethingWrong));
+    }
+  }
+
+  //customer getCustomerById //
   public static async getCustomerById(req: Request, res: Response) {
     try {
       const id: string = req.params.id;
@@ -127,7 +107,7 @@ public static async deleteCustomer(req: Request, res: Response) {
         return res.status(statusCode.badRequest).json(failAction(statusCode.badRequest, 'customer ID is required'));
       }
       const customer = await customerServices.getCustomerById(id);
-      console.log(customer, "ebvcfgfhgh")
+      console.log(customer, 'ebvcfgfhgh');
       if (!customer) {
         return res.status(statusCode.notFound).json(failAction(statusCode.notFound, 'customer not found'));
       }
@@ -137,8 +117,29 @@ public static async deleteCustomer(req: Request, res: Response) {
       return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
     }
   }
+  
+  
+  public static async findServiceProvider(req: Request, res: Response) {
+    try {
+      const { customerLatitude, customerLongitude, serviceProviderId } = req.body;
 
+      const serviceProvider = await customerService.findByPk(serviceProviderId);
 
+      // If the service provider doesn't exist, return an error
+      if (!serviceProvider) {
+        return res.status(404).json({ error: 'Service provider not found' });
+      }
 
+      const distance = calculateDistance(customerLatitude, customerLongitude, serviceProvider.latitude, serviceProvider.longitude);
+      if (distance) {
+        return res.status(statusCode.success).json(successAction(statusCode.success, distance));
+      }
+      return res.status(statusCode.notFound).json(failAction(statusCode.notFound, 'distance not found'));
+    } catch (err) {
+      logger.error(message.errorLog('findServiceProvider', 'customerController', err));
+      return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
+    }
+  }
 }
+
 export default customerController;
