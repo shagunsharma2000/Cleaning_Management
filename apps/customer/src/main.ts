@@ -22,7 +22,7 @@ custom;
 app.use(bodyParser.json());
 
 // API Routes: define routes for handling customer.
-app.use('/customer', Routes);
+app.use('/v1/customer', Routes);
 
 //Basic route handler for the root URL ('/') which sends a simple message.
 app.get('/', (req, res) => {

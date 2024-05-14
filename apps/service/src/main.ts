@@ -19,11 +19,11 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // API Routes: define routes for handling management.
-app.use('v1/equipements', router);
+app.use('/v1/service', router);
 
 //Basic route handler for the root URL ('/') which sends a simple message.
 app.get('/', (req, res) => {
-  res.send({ message: 'Welcome to management!' });
+  res.send({ message: 'Welcome to service!' });
 });
 
 // Setting Port

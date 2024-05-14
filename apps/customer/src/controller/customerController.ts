@@ -6,7 +6,7 @@ import logger from '../utils/logger/index';
 import customerService from '../service/customerService';
 import { calculateDistance } from '../utils/location/location';
 
-class customerController {
+export class customerController {
   //customer create //
   public static async registerCustomer(req: Request, res: Response) {
     try {

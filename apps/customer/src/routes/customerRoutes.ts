@@ -6,7 +6,7 @@ import validationMiddleware from '../validation/joi.validation';
 const router = express.Router();
 
 //Customer register & login//
-router.post('/registerCustomer', (req, res, next) => validationMiddleware(req, res, next, 'Customer'), customerController.registerCustomer);
+router.post('/registerCustomer', customerController.registerCustomer);
 router.post('/login', (req, res, next) => validationMiddleware(req, res, next, 'login'), customerController.login);
 
 //Customer update route//

@@ -50,7 +50,7 @@ export class serviceServices {
   public static async getServiceById(id: string) {
     try {
       const services = await service.findByPk(id);
-      return service;
+      return services ;
     } catch (error) {
       throw new Error(`Failed to get service by id: ${error.message}`);
     }
