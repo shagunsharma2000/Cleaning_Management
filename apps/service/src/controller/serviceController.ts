@@ -1,10 +1,11 @@
-import service from '../service/serviceService';
+import service, { serviceServices } from '../service/serviceService';
 import { message, statusCode } from '../utils/constants';
 import { successAction, failAction } from '../utils/response';
 import { Request, Response } from 'express';
 import logger from '../utils/logger/index';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import customer from '../../../customer/src/model/customerModel';
+import Service from '../model/serviceModel';
 
 export class serviceController {
   //service create //
@@ -94,6 +95,27 @@ export class serviceController {
     } catch (error) {
       console.error('Error assigning service:', error);
       return res.status(500).json({ error: 'Internal server error' });
+    }
+  }
+  //Update Service
+  public static async serviceUpdate(req: Request, res: Response) {
+    try {
+      const data = await serviceServices.serviceUpdate(req.params, req.body);
+      res.status(statusCode.success).json(successAction(statusCode.success, data, message.update('Service')));
+    } catch (err) {
+      logger.error(message.errorLog('seviceDelete', 'seviceController', err));
+      res.status(statusCode.badRequest).json(failAction(statusCode.badRequest, err.message, message.somethingWrong));
+    }
+  }
+
+  //Soft Delete Service
+  public static async serviceDelete(req: Request, res: Response) {
+    try {
+      const data = await serviceServices.Delete(req.params.id);
+      res.status(statusCode.success).json(successAction(statusCode.success, data, message.delete('Service')));
+    } catch (err: any) {
+      logger.error(message.errorLog('seviceDelete', 'seviceController', err));
+      res.status(statusCode.badRequest).json(failAction(statusCode.badRequest, err.message, message.somethingWrong));
     }
   }
 }

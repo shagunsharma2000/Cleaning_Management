@@ -11,10 +11,36 @@ dotenv.config();
 class userService {
   /* USER CREATE API */
 
+  // public static async registerUser(userData) {
+  //   try {
+  //     const { name, phonenumber, password, available, email, address, role } = userData;
+
+  //     const existingUser = await User.findOne({ where: { email } });
+  //     if (existingUser) {
+  //       throw new Error('Email already exists');
+  //     }
+  //     const hashedPassword = await bcrypt.hash(password, 10);
+
+  //     const user = await User.create({
+  //       name,
+  //       phonenumber,
+  //       available,
+  //       password: hashedPassword,
+  //       email,
+  //       address,
+  //       role,
+  //     });
+  //     return user;
+  //   } catch (error) {
+  //     logger.error(`Failed to register user: ${error.message}`);
+  //     throw new Error('Failed to register user');
+  //   }
+  // }
   public static async registerUser(userData) {
     try {
       const { name, phonenumber, password, available, email, address, role } = userData;
 
+      // Check if the email already exists in the database
       const existingUser = await User.findOne({ where: { email } });
       if (existingUser) {
         throw new Error('Email already exists');
@@ -31,6 +57,7 @@ class userService {
         address,
         role,
       });
+
       return user;
     } catch (error) {
       logger.error(`Failed to register user: ${error.message}`);

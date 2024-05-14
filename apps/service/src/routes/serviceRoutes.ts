@@ -17,4 +17,10 @@ router.get('/:id', auth, serviceController.getServiceById);
 //  service assign  //
 router.post('/assign-service', serviceController.assignServiceToStaff);
 
+//update a specific service
+router.put('/:id',auth,  serviceController.serviceUpdate);
+
+//remove a specific service
+router.delete('/:id', auth, serviceController.serviceDelete);
+
 export default router;

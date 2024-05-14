@@ -5,6 +5,7 @@ import logger from '../utils/logger/index';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import User from '../../../management/src/model/userModel';
 import Status from '../utils/enums/indexEnums';
+import Service from '../model/serviceModel';
 
 dotenv.config();
 
@@ -87,5 +88,44 @@ export class serviceServices {
       throw error('Error assigning service: ' + error.message);
     }
   }
+
+//update Service
+  public static async serviceUpdate(params: any, body: any) {
+    try {
+      const service = await Service.findOne({
+        where: {
+          id: params.id,
+        },
+      });
+      if (!service) {
+        return 'notExist';
+      } else {
+        return await service.update(body);
+      }
+    } catch (err: any) {
+      logger.error(err);
+      throw new Error(err.message);
+    }
+  }
+//Delete service
+public static async Delete(serviceId: string) {
+  try {
+    const service = await Service.findOne({ where: { id: serviceId } });
+    if (!service) {
+      return 'NotExist';
+    } else {
+      const today = new Date();
+      return await service.update({ isDeleted: true, deletedAt: today });
+    }
+  } catch (err: any) {
+    logger.error(err);
+    throw new Error(err.message);
+  }
 }
+
+}
+
+
+
+
 export default serviceServices;
