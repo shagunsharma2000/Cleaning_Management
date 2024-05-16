@@ -98,6 +98,7 @@ export class serviceController {
     }
   }
   //Update Service
+  //Aditi
   public static async serviceUpdate(req: Request, res: Response) {
     try {
       const data = await serviceServices.serviceUpdate(req.params, req.body);
@@ -109,6 +110,8 @@ export class serviceController {
   }
 
   //Soft Delete Service
+    //Aditi
+
   public static async serviceDelete(req: Request, res: Response) {
     try {
       const data = await serviceServices.Delete(req.params.id);

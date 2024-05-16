@@ -5,6 +5,9 @@ import validationMiddleware from '../validation/joi.validation';
 
 const router = express.Router();
 
+//Distance
+router.post('/distance', customerController.findServiceProvider);
+
 //Customer register & login//
 router.post('/registerCustomer', customerController.registerCustomer);
 router.post('/login', (req, res, next) => validationMiddleware(req, res, next, 'login'), customerController.login);
@@ -20,8 +23,5 @@ router.get('/getCustomerById/:id', customerController.getCustomerById);
 
 //delete route//
 router.delete('/delete/:id', customerController.deleteCustomer);
-
-//Distance
-router.post('/distance', customerController.findServiceProvider);
 
 export default router;

@@ -3,7 +3,6 @@ import { message, statusCode } from '../utils/constants';
 import { successAction, failAction } from '../utils/response';
 import { Request, Response } from 'express';
 import logger from '../utils/logger/index';
-import customerService from '../service/customerService';
 import { calculateDistance } from '../utils/location/location';
 
 export class customerController {
@@ -117,25 +116,36 @@ export class customerController {
       return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
     }
   }
-  
-  
+
+  //Find the location of Provider
   public static async findServiceProvider(req: Request, res: Response) {
     try {
-      const { customerLatitude, customerLongitude, serviceProviderId } = req.body;
+      const { serviceProviderId, start, end } = req.body;
+      console.log('req.body', req.body);
 
-      const serviceProvider = await customerService.findByPk(serviceProviderId);
+      const serviceProvider = await customerServices.findProvider(serviceProviderId);
 
-      // If the service provider doesn't exist, return an error
-      if (!serviceProvider) {
-        return res.status(404).json({ error: 'Service provider not found' });
+      console.log('serviceProvider', serviceProvider);
+      if (serviceProvider == null) {
+        return res.status(statusCode.notFound).json(failAction(statusCode.notFound, message.notExist('service')));
       }
+      // // Extract the latitude and longitude from the service object
 
-      const distance = calculateDistance(customerLatitude, customerLongitude, serviceProvider.latitude, serviceProvider.longitude);
-      if (distance) {
-        return res.status(statusCode.success).json(successAction(statusCode.success, distance));
+      const startLatitude = start.latitude;
+      const startLongitude = start.longitude;
+      const endLatitude = end.latitude;
+      const endLongitude = end.longitude;
+
+      // Calculate the distance between start and end points
+      const distance = calculateDistance(startLatitude, startLongitude, endLatitude, endLongitude);
+      console.log('distance', distance);
+
+      if (!distance) {
+        return res.status(statusCode.notFound).json(failAction(statusCode.notFound, message.notExist('Distance')));
       }
-      return res.status(statusCode.notFound).json(failAction(statusCode.notFound, 'distance not found'));
+      return res.status(statusCode.success).json(successAction(statusCode.success, { distance, serviceProvider }, message.add('Distance')));
     } catch (err) {
+      // Handle errors
       logger.error(message.errorLog('findServiceProvider', 'customerController', err));
       return res.status(statusCode.internalServerError).json(failAction(statusCode.internalServerError, err.message, message.somethingWrong));
     }

@@ -1,14 +1,13 @@
 import { DataTypes, Model } from 'sequelize';
+import { ILocationData } from '../utils/interface/customerinterface';
 import sequelize from '../dbConfig/dbConnection';
-import { CustomerData } from '../utils/interface/customerinterface';
 
-class Customer extends Model<CustomerData> {
+class Location extends Model<ILocationData> {
   public id!: string;
-  public name!: string;
-  public phonenumber!: string;
-  public password!: string;
-  public email!: string;
-  public address!: string;
+  public serviceproviderId: string;
+  public start!: { latitude: number; longitude: number };
+  public end!: { latitude: number; longitude: number };
+  public distance: number;
   public isDeleted!: boolean;
   public deletedBy!: string;
   public deletedAt!: Date;
@@ -16,7 +15,7 @@ class Customer extends Model<CustomerData> {
   public updatedAt!: Date;
 }
 
-Customer.init(
+Location.init(
   {
     id: {
       type: DataTypes.UUID,
@@ -24,37 +23,23 @@ Customer.init(
       allowNull: false,
       primaryKey: true,
     },
-    name: {
+    serviceproviderId: {
       type: DataTypes.STRING(50),
       allowNull: false,
     },
-    phonenumber: {
-      type: DataTypes.STRING(15),
+
+    start: {
+      type: DataTypes.JSON,
       allowNull: false,
     },
-    password: {
-      type: DataTypes.STRING,
+    end: {
+      type: DataTypes.JSON,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
-      validate: {
-        isEmail: true,
-      },
+    distance: {
+      type: DataTypes.FLOAT, 
+      allowNull: true, 
     },
-    address: {
-      type: DataTypes.STRING(100),
-      allowNull: false,
-    },
-    // latitude: {
-    //   type: DataTypes.DOUBLE,
-    //   allowNull: false,
-    // },
-    // longitude: {
-    //   type: DataTypes.DOUBLE,
-    //   allowNull: false,
-    // },
     isDeleted: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
@@ -68,12 +53,12 @@ Customer.init(
       allowNull: true,
     },
   },
+
   {
     sequelize,
-    modelName: 'Customer',
+    modelName: 'Location',
   },
 );
-
 sequelize
   .sync()
   .then(() => {
@@ -83,4 +68,4 @@ sequelize
     console.error('Unable to create table: ', error);
   });
 
-export default Customer;
+export default Location;

@@ -26,7 +26,7 @@ app.use('/v1/customer', Routes);
 
 //Basic route handler for the root URL ('/') which sends a simple message.
 app.get('/', (req, res) => {
-  res.send({ message: 'Welcome to management!' });
+  res.send({ message: 'Welcome to customer!' });
 });
 
 // Setting Port

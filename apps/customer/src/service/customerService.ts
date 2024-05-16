@@ -4,6 +4,9 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import logger from '../utils/logger/index';
 import { comparePassword, hashPassword } from '../utils/common';
+// import Location from '../model/locationModel';
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import User from '../../../management/src/model/userModel';
 
 dotenv.config();
 
@@ -138,13 +141,18 @@ class customerService {
   }
 
   // location track
-  public static async findByPk(id: string) {
+  //Aditi//
+  public static async findProvider(serviceId: string) {
     try {
-      const serviceProvider = await Customer.findByPk(id);
-      return serviceProvider;
-    } catch (error) {
-      throw new Error(`Failed to find service provider by id: ${error.message}`);
+      const serviceProviderId = await User.findOne({ where: { id: serviceId } });
+      console.log('serviceProviderId', serviceProviderId);
+      // const serviceProviderId = await Location.findByPk(id);
+      return serviceProviderId;
+    } catch (err) {
+      logger.error(err);
+      throw new Error(err.message);
     }
   }
 }
+
 export default customerService;

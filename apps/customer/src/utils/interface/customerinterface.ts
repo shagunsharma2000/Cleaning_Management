@@ -17,8 +17,18 @@ export interface CustomerData {
   email: string;
   password: string;
   address: string;
-  latitude: number;
-  longitude: number;
+  isDeleted?: boolean;
+  deletedBy?: string;
+  deletedAt?: Date;
+}
+
+//Interface for location
+export interface ILocationData {
+  id?: number;
+  serviceproviderId: string;
+  start: string;
+  end: string;
+  distance :number;
   isDeleted?: boolean;
   deletedBy?: string;
   deletedAt?: Date;

@@ -1,8 +1,9 @@
 import { v4 as uuidv4 } from 'uuid'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const namespace = require('continuation-local-storage').getNamespace('logger')
-const { createLogger, format, transports } = require('winston')
-const DailyRotateFile = require('winston-daily-rotate-file')
-const appRoot = require('app-root-path')
+import { createLogger, format, transports } from 'winston'
+import DailyRotateFile from 'winston-daily-rotate-file'
+import appRoot from 'app-root-path'
 const logsPath = `${appRoot}/lib/logger/logs/`
 
 const fileFormat = format.combine(
